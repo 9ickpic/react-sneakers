@@ -1,4 +1,11 @@
+import React from "react";
 function Card(props) {
+  const [isAdded, setIsAdded] = React.useState(false);
+
+  const onClickPlus = () => {
+    setIsAdded(!isAdded);
+  };
+
   return (
     <div className="card p-5 items-center hoveruser m-5">
       <button
@@ -19,18 +26,16 @@ function Card(props) {
             <span className="mb-[2px] text-[#BDBDBD]">Цена: </span>
             <p className="font-bold flex">{props.price} руб.</p>
           </div>
-
-          <button
+          <img
             className="ml-[39px] button-border flex justify-center items-center"
-            onClick={props.onClickAddCart}
-          >
-            <img
-              width={11}
-              height={11}
-              src="/img/sneaker/add_cart_button.svg"
-              alt="add in cart"
-            />
-          </button>
+            onClick={onClickPlus}
+            src={
+              isAdded
+                ? "/img/button_state/added.svg"
+                : "/img/button_state/unadded.svg"
+            }
+            alt="add in cart"
+          />
         </div>
       </div>
     </div>

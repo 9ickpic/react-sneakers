@@ -1,10 +1,12 @@
-function Drawer() {
+import React from "react";
+
+function Drawer(props) {
   return (
-    <div className="top-0 left-0 absolute w-full h-full z-10 bg-[rgba(0,0,0,0.5)] hidden">
+    <div className="top-0 left-0 absolute w-full h-full z-10 bg-[rgba(0,0,0,0.5)]">
       <div className="w-[385px] h-full right-0 absolute shdw p-[30px] flex flex-col">
         <div className="flex justify-between mr-2">
           <h2 className="text-2xl font-bold mb-[30px]">Корзина</h2>
-          <button className="size-8">
+          <button onClick={props.onClose} className="size-8">
             <img
               className="max-w-max opacity-50 hover:opacity-100 hover:transition-opacity cursor-pointer"
               src="/img/button_state/deletehover.svg"

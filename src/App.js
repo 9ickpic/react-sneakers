@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
@@ -66,10 +67,12 @@ const arr = [
 ];
 
 function App() {
+  const [cartOpened, setCartOpened] = React.useState(false);
+
   return (
     <div className="bg-white max-w-[1080px] m-[50px_auto] rounded-[20px] shdw">
-      <Drawer />
-      <Header />
+      {cartOpened && <Drawer onClose={() => setCartOpened(!cartOpened)} />}
+      <Header onClickCart={() => setCartOpened(!cartOpened)} />
       <main className="m-0 p-10">
         <div className="flex flex-row items-center justify-between mb-10">
           <h1 className="font-bold text-3xl">Все кроссовки</h1>
